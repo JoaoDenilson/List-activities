@@ -1,0 +1,24 @@
+<html ng-App="myApp">
+<head>
+	<title>Lista de Atividades </title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="theme.css">
+  	<script src= "index.js"> </script>
+
+</head>
+<body>
+	<div ng-controller="myAppCtrl">
+		<form name="frm" ng-submit="adicionarAtividade()">
+			<input type="text" ng-model="novaAtividade" required/>
+			<button ng-disabled="frm.$invalid">Adicionar</button>
+		</form>
+		<button ng-click="removerAtividade()">Limpar</button>
+		<ul>
+			<li ng-repeat="atividade in atividades">
+				<input type="checkbox" ng-model="atividade.concluida">
+				<span ng-class="{'concluida':atividade.concluida}">{{atividade.titulo}}</span>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
